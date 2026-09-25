@@ -177,7 +177,7 @@ namespace LibMas
                 return Array.Empty<int>();
             }
 
-            var tokens = input.Split(new[] { ',', ';', '.', ' ', '\t' },
+            var tokens = input.Split(new[] { ',', ';', '.', ' ', '\t', '\r', '\n' },
                 StringSplitOptions.RemoveEmptyEntries);
 
             var result = new List<int>();
