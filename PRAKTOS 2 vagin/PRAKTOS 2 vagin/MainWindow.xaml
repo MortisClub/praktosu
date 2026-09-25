@@ -1,0 +1,56 @@
+﻿<Window x:Class="PRAKTOS_2_vagin.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Суммы элементов четных столбцов матрицы"
+        Height="480" Width="820">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0" Margin="0,0,0,5">
+            <MenuItem Header="Файл">
+                <MenuItem x:Name="miOpen" Header="Открыть" Click="btnOpen_Click"/>
+                <MenuItem x:Name="miSave" Header="Сохранить" Click="btnSave_Click"/>
+                <Separator/>
+                <MenuItem x:Name="miExit" Header="Выход" Click="btnExit_Click"/>
+            </MenuItem>
+            <MenuItem Header="Действия">
+                <MenuItem x:Name="miFill" Header="Заполнить" Click="btnFill_Click"/>
+                <MenuItem x:Name="miClear" Header="Очистить" Click="btnClear_Click"/>
+                <MenuItem x:Name="miCalculate" Header="Вычислить суммы четных столбцов"
+                          Click="btnCalculate_Click"/>
+            </MenuItem>
+            <MenuItem Header="Справка">
+                <MenuItem x:Name="miAbout" Header="О программе" Click="btnAbout_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="Строк (M):" VerticalAlignment="Center"/>
+            <TextBox x:Name="tbRowCount" Width="50" Margin="5,0,15,0" Text="4"/>
+            <TextBlock Text="Столбцов (N):" VerticalAlignment="Center"/>
+            <TextBox x:Name="tbColumnCount" Width="50" Margin="5,0,15,0" Text="5"/>
+            <Button x:Name="btnFill" Content="Заполнить" Margin="5,0" Click="btnFill_Click"/>
+            <Button x:Name="btnClear" Content="Очистить" Margin="5,0" Click="btnClear_Click"/>
+            <Button x:Name="btnSave" Content="Сохранить" Margin="5,0" Click="btnSave_Click"/>
+            <Button x:Name="btnOpen" Content="Открыть" Margin="5,0" Click="btnOpen_Click"/>
+            <Button x:Name="btnAbout" Content="О программе" Margin="20,0,5,0" Click="btnAbout_Click"/>
+            <Button x:Name="btnExit" Content="Выход" Margin="5,0" Click="btnExit_Click"/>
+        </StackPanel>
+
+        <DataGrid x:Name="dgMatrix" Grid.Row="2" IsReadOnly="True"
+                  AutoGenerateColumns="False" CanUserAddRows="False"/>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,10,0,0">
+            <Button x:Name="btnCalculate" Content="Вычислить суммы четных столбцов"
+                    Padding="10,5" Click="btnCalculate_Click"/>
+        </StackPanel>
+
+        <ListBox x:Name="lbSums" Grid.Row="4" Height="70" Margin="0,10,0,0"/>
+    </Grid>
+</Window>
